@@ -31,6 +31,11 @@ Stress test:
 ./bench --stress 600 // stress test for 10 minutes
 ```
 
+Full Benchmark (Stress Test 600s + Benchmark, Markdown)
+```bash
+./bench --full
+```
+
 ## compiling:
 
 ### Debian-based (Debian, Ubuntu, Linux Mint etc.)

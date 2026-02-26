@@ -175,7 +175,7 @@ double geoMean(vector<double> v){
 
 /* ================= STRESS ================= */
 
-void stressMode(int sec){
+void stressMode(int sec, bool obstruct){
     initscr(); noecho(); curs_set(0);
     auto end=high_resolution_clock::now()+seconds(sec);
     double score=0;
@@ -195,7 +195,11 @@ void stressMode(int sec){
     mvprintw(5,2,"Stress test duration: %d seconds",sec);
     refresh();
 
-    getch(); endwin();
+    if(obstruct) getch(); endwin();
+    printf("# STRESS TEST RESULTS\n\n");
+    printf("- Score: %.1f\n",score);
+    printf("- Duration: %d seconds\n\n",sec);
+    
 }
 
 /* ================= MAIN ================= */
@@ -209,8 +213,12 @@ int main(int argc,char* argv[]){
         if(arg=="--md") md=true;
         if(arg=="--json") json=true;
         if(arg=="--stress" && argc>2){
-            stressMode(stoi(argv[2]));
+            stressMode(stoi(argv[2]),true);
             return 0;
+        }
+        if(arg=="--full") {
+            md=true;
+            stressMode(600, false);
         }
     }
 
