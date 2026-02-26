@@ -178,13 +178,23 @@ double geoMean(vector<double> v){
 void stressMode(int sec){
     initscr(); noecho(); curs_set(0);
     auto end=high_resolution_clock::now()+seconds(sec);
+    double score=0;
     while(high_resolution_clock::now()<end){
-        benchInt(1);
+        score += benchInt(1);
         clear();
-        mvprintw(2,2,"STRESS MODE");
+        mvprintw(2,2,"STRESS TEST");
         mvprintw(4,2,"Temp: %.1f C",getTemp());
+        mvprintw(5,2,"Current score: %.1f",score);
+        auto remaining = duration_cast<seconds>(end - high_resolution_clock::now()).count();
+        mvprintw(6,2,"Time left: %ld", remaining);
         refresh();
     }
+    clear();
+    mvprintw(2,2,"RESULTS");
+    mvprintw(4,2,"Current score: %.1f",score);
+    mvprintw(5,2,"Stress test duration: %d seconds",sec);
+    refresh();
+
     getch(); endwin();
 }
 
