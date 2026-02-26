@@ -60,7 +60,7 @@ sudo zypper install gcc-c++ ncurses-devel
 
 ### Alpine Linux
 ```bash
-apk add gcc ncurses-dev
+apk add gcc g++ ncurses-dev
 ./compile.sh
 ```
 
