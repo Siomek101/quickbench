@@ -52,8 +52,14 @@ sudo pacman -Syu base-devel ncurses
 ./compile.sh
 ```
 
-## openSUSE
+### openSUSE
 ```bash
 sudo zypper install gcc-c++ ncurses-devel
+./compile.sh
+```
+
+### Alpine Linux
+```bash
+apk add gcc ncurses-dev
 ./compile.sh
 ```
