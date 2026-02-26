@@ -63,3 +63,6 @@ sudo zypper install gcc-c++ ncurses-devel
 apk add gcc ncurses-dev
 ./compile.sh
 ```
+
+# Thanks to the contributors:
+- @ProfP30
